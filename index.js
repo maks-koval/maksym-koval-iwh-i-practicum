@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const PRIVATE_APP_ACCESS = process.env.HUBSPOT_ACCESS_TOKEN || "";
-const HUBSPOT_CARS_URL = "https://api.hubapi.com/crm/v3/objects/cars";
+const HUBSPOT_CARS_URL = "https://api.hubapi.com/crm/v3/objects/2-257265631";
 
 const getHeaders = () => ({
   Authorization: "Bearer " + PRIVATE_APP_ACCESS,

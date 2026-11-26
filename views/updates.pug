@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Add Car
+    a(href="/") Back to Homepage
+    form(action="/update-cobj", method="POST")
+      div
+        label(for="name") Name:
+        input(type="text", id="name", name="name", required)
+      button(type="submit") Submit

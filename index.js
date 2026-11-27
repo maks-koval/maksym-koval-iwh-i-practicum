@@ -17,7 +17,7 @@ const getHeaders = () => ({
 
 app.get("/", async (req, res) => {
   try {
-    const resp = await axios.get(HUBSPOT_CARS_URL + "?properties=name", { headers: getHeaders() });
+    const resp = await axios.get(HUBSPOT_CARS_URL + "?properties=name,brand,year", { headers: getHeaders() });
     res.render("homepage", { title: "Cars | HubSpot Practicum", records: resp.data.results || [] });
   } catch (err) {
     console.error(err.response ? err.response.data : err.message);
@@ -31,7 +31,8 @@ app.get("/update-cobj", (req, res) => {
 
 app.post("/update-cobj", async (req, res) => {
   try {
-    await axios.post(HUBSPOT_CARS_URL, { properties: { name: req.body.name } }, { headers: getHeaders() });
+    const { name, brand, year } = req.body;
+    await axios.post(HUBSPOT_CARS_URL, { properties: { name, brand, year } }, { headers: getHeaders() });
     res.redirect("/");
   } catch (err) {
     console.error(err.response ? err.response.data : err.message);

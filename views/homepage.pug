@@ -5,15 +5,19 @@ html
     link(rel="stylesheet", href="/css/style.css")
   body
     h1 Cars
-    a(href="/update-cobj") Add / Update Car
+    a(href="/update-cobj") Add to this table
     if records && records.length
       table(border="1", cellpadding="8")
         thead
           tr
             th Name
+            th Brand
+            th Year
         tbody
           each item in records
             tr
               td= item.properties.name
+              td= item.properties.brand
+              td= item.properties.year
     else
       p No cars yet.

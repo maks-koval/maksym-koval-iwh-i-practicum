@@ -5,9 +5,15 @@ html
     link(rel="stylesheet", href="/css/style.css")
   body
     h1 Add Car
-    a(href="/") Back to Homepage
+    a(href="/") Return to the homepage
     form(action="/update-cobj", method="POST")
       div
         label(for="name") Name:
         input(type="text", id="name", name="name", required)
+      div
+        label(for="brand") Brand:
+        input(type="text", id="brand", name="brand", required)
+      div
+        label(for="year") Year:
+        input(type="number", id="year", name="year", required)
       button(type="submit") Submit
